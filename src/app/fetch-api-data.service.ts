@@ -30,9 +30,40 @@ export class FetchApiDataService {
   }
 
   public getUser(): any {
-    const user = localStorage.getItem('user');
+    const user: any = JSON.parse(localStorage.getItem('user')|| "");
     return {
       user
+    }
+  }
+
+  public editUser(username: String, userDetails: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.put(apiUrl + 'users/' + username, userDetails,  {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })}).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+  public deleteUser(username: String): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.delete(apiUrl + 'users/' + username ,  {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })}).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+  
+
+  public getUserFavoriteMovies(): any {
+    const user: any = JSON.parse(localStorage.getItem('user')|| "");
+    return {
+      user: user.FavoriteMovies
     }
   }
 
