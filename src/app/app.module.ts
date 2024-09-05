@@ -15,6 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
+import { FetchApiDataService } from './fetch-api-data.service';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
     MatDialogModule,
     MatSnackBarModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
