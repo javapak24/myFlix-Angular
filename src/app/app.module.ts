@@ -16,12 +16,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { FetchApiDataService } from './fetch-api-data.service';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserRegistrationFormComponent
+    UserRegistrationFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
