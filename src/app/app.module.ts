@@ -17,13 +17,14 @@ import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { FetchApiDataService } from './fetch-api-data.service';
 import { LoginComponent } from './login/login.component';
-
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    LoginComponent
+    LoginComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
