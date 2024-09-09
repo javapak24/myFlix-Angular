@@ -23,6 +23,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MatIconModule } from '@angular/material/icon';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -52,6 +55,7 @@ const appRoutes: Routes = [
     HttpClientModule
   ],
   providers: [
+    [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     provideClientHydration(),
     provideAnimationsAsync()
   ],
