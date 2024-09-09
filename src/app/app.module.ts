@@ -30,6 +30,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: '', component: WelcomePageComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 @NgModule({
