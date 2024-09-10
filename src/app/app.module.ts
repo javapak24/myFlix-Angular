@@ -24,13 +24,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-  { path: '', component: WelcomePageComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 @NgModule({
@@ -39,7 +39,8 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     LoginComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
