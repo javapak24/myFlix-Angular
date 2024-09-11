@@ -33,4 +33,34 @@ export class MovieCardComponent {
   showSynopsisAlert(synopsis: any): void {
     alert(synopsis);
   }
+
+  // TODO: Implement favorite button
+  addToFavorites(movieTitle: string): void {
+    const username: any = localStorage.getItem('user');
+    this.fetchApiData
+      .addFavoriteMovie(username, movieTitle)
+      .subscribe((res: any) => {
+        console.log(res);
+        this.getMovies();
+      });
+  }
+
+  // TODO: Implement delete button
+  removeFromFavorites(movieTitle: string): void {
+    const username: any = localStorage.getItem('user');
+    this.fetchApiData
+      .deleteFavoriteMovie(username, movieTitle)
+      .subscribe((res: any) => {
+        console.log(res);
+        this.getMovies();
+      });
+  }
+
+  isFavorite(movieId: string): boolean {
+    const userFavorites: any = JSON.parse(
+      localStorage.getItem('user') as any
+    ).FavoriteMovies;
+    console.log(userFavorites);
+    return userFavorites.includes(movieId);
+  }
 }
