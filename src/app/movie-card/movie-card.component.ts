@@ -36,9 +36,9 @@ export class MovieCardComponent {
 
   // TODO: Implement favorite button
   addToFavorites(movieTitle: string): void {
-    const username: any = localStorage.getItem('user');
+    const user: any = JSON.parse(localStorage.getItem('user') as any);
     this.fetchApiData
-      .addFavoriteMovie(username, movieTitle)
+      .addFavoriteMovie(user.Username, movieTitle)
       .subscribe((res: any) => {
         console.log(res);
         this.getMovies();
@@ -47,9 +47,9 @@ export class MovieCardComponent {
 
   // TODO: Implement delete button
   removeFromFavorites(movieTitle: string): void {
-    const username: any = localStorage.getItem('user');
+    const user: any = JSON.parse(localStorage.getItem('user') as any);
     this.fetchApiData
-      .deleteFavoriteMovie(username, movieTitle)
+      .deleteFavoriteMovie(user.Username, movieTitle)
       .subscribe((res: any) => {
         console.log(res);
         this.getMovies();
