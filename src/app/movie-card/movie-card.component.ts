@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,7 +9,10 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 })
 export class MovieCardComponent {
   movies: any[] = [];
-  constructor(public fetchApiData: FetchApiDataService) {}
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public snackBar: MatSnackBar
+    ) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -43,6 +47,9 @@ export class MovieCardComponent {
         console.log(res);
         this.getMovies();
       });
+      this.snackBar.open("movie added to favorites", 'OK', {
+        duration: 2000
+     });
   }
 
   // TODO: Implement delete button
@@ -54,6 +61,9 @@ export class MovieCardComponent {
         console.log(res);
         this.getMovies();
       });
+      this.snackBar.open("movie removed from favorites", 'OK', {
+        duration: 2000
+     });
   }
 
   isFavorite(movieId: string): boolean {
