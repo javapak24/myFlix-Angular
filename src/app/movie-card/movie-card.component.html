@@ -9,18 +9,21 @@
             <button
                 mat-button
                 color="primary"
+                (click)="showGenreAlert(movie.Genre.Description)"
             >
                 Genre
             </button>
             <button
                 mat-button
                 color="primary"
+                (click)="showDirectorAlert(movie.Director.Bio)"
             >
                 Director
             </button>
             <button
                 mat-button
                 color="primary"
+                (click)="showSynopsisAlert(movie.Description)"
             >
                 Synopsis
             </button>
