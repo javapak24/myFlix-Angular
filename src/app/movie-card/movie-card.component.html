@@ -1,4 +1,13 @@
 <div style="display: flex;">
+    <button
+      mat-raised-button
+      (click)="myProfile()"
+      style="margin-right: 10px;"
+      color="primary"
+    >
+      My Profile
+    </button>
+
     <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
         <mat-card-header>
         <mat-card-title>{{movie.Title}}</mat-card-title>

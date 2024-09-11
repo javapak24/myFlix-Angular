@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -11,8 +12,9 @@ export class MovieCardComponent {
   movies: any[] = [];
   constructor(
     public fetchApiData: FetchApiDataService,
-    public snackBar: MatSnackBar
-    ) {}
+    public snackBar: MatSnackBar,
+    public router: Router
+    ) {} 
 
   ngOnInit(): void {
     this.getMovies();
@@ -72,5 +74,9 @@ export class MovieCardComponent {
     ).FavoriteMovies;
     console.log(userFavorites);
     return userFavorites.includes(movieId);
+  }
+
+  myProfile(): void{
+    this.router.navigate(['profile']);
   }
 }
