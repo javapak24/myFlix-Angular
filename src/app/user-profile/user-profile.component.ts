@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
   movies: any[]= [];
   userData: any = {};
   favoriteMovies: any[] = [];
@@ -55,7 +55,7 @@ getUserFavoriteMovies(): void{
   this.fetchApiData.getUserFavoriteMovies().subscribe((resp : any) => {
     this.userData.favoriteMovies = resp.FavoriteMovies;
     return this.userData.favoriteMovies;
-  });
+})
 }
 
 showGenreAlert(genre: any): void {
@@ -76,6 +76,14 @@ getMovies(): void {
     console.log(this.movies);
     return this.movies;
   });
+}
+
+deleteUser(): void{
+  const user: any = JSON.parse(localStorage.getItem('user') as any);
+  this.fetchApiData.deleteUser(user.Username).subscribe((resp: any) => {
+    console.log(resp);
+    this.logoutUser();
+  })
 }
 
 // TODO: Implement favorite button
@@ -118,6 +126,7 @@ isFavorite(movieId: string): boolean {
 logoutUser(): void{
   this.router.navigate(['welcome']);
   localStorage.removeItem("user");
+  localStorage.removeItem("token");
 }
 
 allMovies(): void{
