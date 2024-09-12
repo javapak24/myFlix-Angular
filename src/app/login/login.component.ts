@@ -36,10 +36,9 @@ export class LoginComponent  implements OnInit  {
      localStorage.setItem("user", JSON.stringify(result.user));
      localStorage.setItem("token", result.token);
      this.dialogRef.close(); // This will close the modal on success!
-     this.snackBar.open("login successful", 'OK', {
+     this.snackBar.open(`Login Successful, Hello ${result.user.Username}`, 'OK', {
         duration: 2000
-     });    
-     
+     });
      this.router.navigate(['movies']);
 
     }, (result) => {
