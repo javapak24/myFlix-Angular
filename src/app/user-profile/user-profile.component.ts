@@ -49,7 +49,7 @@ editUser(): void{
     localStorage.setItem("user", JSON.stringify(this.userData));
     console.log(this.userData);
   });
-}
+} 
 
 getUserFavoriteMovies(): void{
   this.fetchApiData.getUserFavoriteMovies().subscribe((resp : any) => {
