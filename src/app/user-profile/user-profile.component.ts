@@ -84,8 +84,8 @@ deleteUser(): void{
   const user: any = JSON.parse(localStorage.getItem('user') as any);
   this.fetchApiData.deleteUser(user.Username).subscribe((resp: any) => {
     console.log(resp);
-    this.logoutUser();
   })
+  this.logoutUser();
 }
 
 // TODO: Implement favorite button
