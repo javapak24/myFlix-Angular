@@ -68,7 +68,7 @@ showDirectorAlert(director: any): void {
 
 showSynopsisAlert(synopsis: any): void {
   alert(synopsis);
-}
+} 
 
 getFavMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
