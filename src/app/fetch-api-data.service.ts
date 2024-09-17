@@ -76,7 +76,7 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
-
+ 
   public deleteFavoriteMovie(username: String, movieTitle: String): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + 'users/' + username + '/' + movieTitle,{headers: new HttpHeaders(
