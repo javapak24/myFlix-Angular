@@ -38,6 +38,9 @@ export class UserProfileComponent implements OnInit {
 //   });
 // }
 
+/**
+ * Function to edit user using FetchApiDataService
+ */
 editUser(): void{
   this.fetchApiData.editUser(this.userData.Username, this.userData).subscribe((resp: any) => {
     this.userData = {
@@ -58,6 +61,7 @@ editUser(): void{
 // })
 // }
 
+
 showGenreAlert(genre: any): void {
   alert(genre);
 }
@@ -70,6 +74,9 @@ showSynopsisAlert(synopsis: any): void {
   alert(synopsis);
 } 
 
+/**
+ * Function to get user's favorite movies using FetchApiDataService
+ */
 getFavMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
     this.favoriteMovies = resp.filter((m : any) => {
@@ -80,6 +87,9 @@ getFavMovies(): void {
   });
 }
 
+/**
+ * Function to delete user using FetchApiDataService and then logout user
+ */
 deleteUser(): void{
   const user: any = JSON.parse(localStorage.getItem('user') as any);
   this.fetchApiData.deleteUser(user.Username).subscribe((resp: any) => {
@@ -124,13 +134,18 @@ deleteUser(): void{
 //   return userFavorites.includes(movieId);
 // }
 
-
+/**
+ * Function to logout user and return to welcome page
+ */
 logoutUser(): void{
   this.router.navigate(['welcome']);
   localStorage.removeItem("user");
   localStorage.removeItem("token");
 }
 
+/**
+ * Function to return to all movies page
+ */
 allMovies(): void{
   this.router.navigate(['movies']);
 }

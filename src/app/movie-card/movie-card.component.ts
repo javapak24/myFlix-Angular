@@ -20,6 +20,9 @@ export class MovieCardComponent {
     this.getMovies();
   }
 
+  /**
+   * Function to get all movies using FetchApiDataService
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -28,19 +31,34 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Function to alert genre
+   * @param genre 
+   */
   showGenreAlert(genre: any): void {
     alert(genre);
   }
 
+  /**
+   * Function to alert director
+   * @param director 
+   */
   showDirectorAlert(director: any): void {
     alert(director);
   }
 
+  /**
+   * Function to alert synopsis
+   * @param synopsis 
+   */
   showSynopsisAlert(synopsis: any): void {
     alert(synopsis);
   }
 
-  // TODO: Implement favorite button
+  /**
+   * Function to add movie to favorites using FetchApiDataService
+   * @param movieTitle 
+   */
   addToFavorites(movieTitle: string): void {
     const user: any = JSON.parse(localStorage.getItem('user') as any);
     this.fetchApiData
@@ -54,7 +72,10 @@ export class MovieCardComponent {
      });
   }
 
-  // TODO: Implement delete button
+  /**
+   * Function to remove movie from favorites using FetchApiDataService
+   * @param movieTitle 
+   */
   removeFromFavorites(movieTitle: string): void {
     const user: any = JSON.parse(localStorage.getItem('user') as any);
     this.fetchApiData
@@ -76,6 +97,9 @@ export class MovieCardComponent {
     return userFavorites.includes(movieId);
   }
 
+  /**
+   * Function to bring user to profile endpoint
+   */
   myProfile(): void{
     this.router.navigate(['profile']);
   }
